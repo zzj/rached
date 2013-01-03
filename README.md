@@ -17,6 +17,12 @@ When the logic of function is changed, you should add version parameter, and inc
     b <- function(x, y, z) {
         return (x + y - z)  # change from '+' to '1'
     }      
-    b.cached <- rached.memoise(b, 'b', version=1) # default version is 0, and the new added parameter will just invalid older cached value.
+    b.cached <- rached.memoise(b, 'b', version=1) # default version is 0, and the new added parameter
+                                                  # will just invalidate older cached values.
 
  
+TODO:
+
+1. Automatically delete old cached values.
+2. Add expire parameters.
+3. Use other storage method instead of relying on the normal filesystem.
