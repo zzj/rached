@@ -3,6 +3,11 @@ rached
 
 A cache library written in R.
 
+Function Definition:
+rached.memoise(functor, functionname, version=0)
+
+R does not pass the function name with the functor, therefore, user need to specify the name in the rached.memoise function to avoid name conflicts in the cache.
+
 Function Usage:
 
     b <- function(x, y, z) {
