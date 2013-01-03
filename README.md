@@ -10,6 +10,8 @@ R does not pass the function name with the functor, therefore, user need to spec
 
 Function Usage:
 
+    source('rached.R')
+
     b <- function(x, y, z) {
         return (x + y + z)
     }      
