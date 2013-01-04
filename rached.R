@@ -13,6 +13,11 @@ rached.clear <- function() {
 
 rached.initialize()
 
+rached.legalize.filename <- function(k) {
+  gsub("/",".",k)
+}
+
+
 rached.memoise <- function(func, name, version=0, md5=F) {
   key <- function(name, version, md5, ...) {
     parameters = list(...)
@@ -22,7 +27,8 @@ rached.memoise <- function(func, name, version=0, md5=F) {
   }
   new.func <- function(...) {
     k <- key(name, version, md5, ...)
-    data.file <- paste(rached.folder, "/", k, ".rds", sep="")
+    legal.k <- rached.legalize.filename(k)
+    data.file <- paste(rached.folder, "/", legal.k, ".rds", sep="")
     if (!file.exists(data.file)) {
       ret <- func(...)
       saveRDS(ret, data.file)

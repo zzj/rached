@@ -26,3 +26,13 @@ b.cached <- rached.memoise(b, 'b')
 
 stopifnot(6 == b.cached(1, 2, 3))
 stopifnot(6 == b.cached(1, 2, 3))
+
+
+c <- function(x) {
+  return (x)
+}
+c.cached <- rached.memoise(c, 'c')
+
+filename <- "a/b/c"
+stopifnot(filename == c.cached(filename))
+stopifnot(filename == c.cached(filename))
